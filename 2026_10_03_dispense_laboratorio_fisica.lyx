@@ -1,0 +1,5256 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extarticle
+\begin_preamble
+% --- SETUP PER GRAFICI PYTHON (TIKZPLOTLIB) ---
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Usa una versione stabile
+\usepgfplotslibrary{groupplots} % FONDAMENTALE per grafici multipli (dati+residui)
+\usepackage{tikz}
+\usepackage[siunitx]{circuitikz}
+
+% --- SETUP FONT E MATEMATICA ---
+\usepackage{amsmath}
+\usepackage{mathpazo} % Font Palatino (applicherà lo stesso font anche ai grafici)
+\usepackage{xcolor}   % Previene errori sui colori
+\usepackage[font=it]{caption}
+\end_preamble
+\options fontsize=8
+\use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children no
+\language italian
+\language_package default
+\inputencoding utf8
+\fontencoding default
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "mathpazo" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment center
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 2
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 1cm
+\headheight 1cm
+\headsep 1cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip halfline
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Laboratorio di Fisica
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Lezioni di teoria
+\end_layout
+
+\begin_layout Section
+Amplificatori
+\end_layout
+
+\begin_layout Standard
+Tipi di amplificatori:
+ tensione,
+ corrente,
+ transresistenza,
+ transconduttanza,
+ amplificatore di potena.
+ Proprietà fondamentale degli amplificatori è la 
+\series bold
+linearità.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{\text{out}}\left(t\right)=AS_{\text{in}}\left(t\right)\label{eq:legge-tensione-amplificatore-ideale}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[
+\end_layout
+
+\begin_layout Plain Layout
+
+    scale=1.2,
+\end_layout
+
+\begin_layout Plain Layout
+
+    line/.style={draw=blue!60!black,
+ thick},
+\end_layout
+
+\begin_layout Plain Layout
+
+    terminal/.style={circle,
+ draw=blue!60!black,
+ fill=white,
+ inner sep=1.8pt,
+ thick}
+\end_layout
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Triangolo dell'amplificatore
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[line] (0,
+ -0.9) -- (0,
+ 0.9) -- (1.2,
+ 0) -- cycle;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Linee di ingresso (input)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[line] (-1.1,
+ 0.6) -- (0,
+ 0.6);
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[line] (-1.1,
+ -0.6) -- (0,
+ -0.6);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Linee di uscita (output)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[line] (0.4,
+ 0.6) -- (1.6,
+ 0.6);
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[line] (0.4,
+ -0.6) -- (1.6,
+ -0.6);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Terminali (cerchietti vuoti)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[terminal] at (-1.1,
+ 0.6) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[terminal] at (-1.1,
+ -0.6) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[terminal] at (1.6,
+ 0.6) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[terminal] at (1.6,
+ -0.6) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Etichette di testo
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (-1.7,
+ 0) {input};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (2.4,
+ 0) {output};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\shape italic
+Amplificatore
+\shape default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Amplificatore"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Amplificatore in tensione
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A_{V}=\frac{V_{\text{out}}}{V_{\text{in}}}\label{eq:guadagno-tensione-amplificatore-tensione}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}[american]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Morsetti e ramo d'ingresso
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+ 2) node[ocirc] (in_p) {}
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (1.6,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l_=$R_{
+\backslash
+mathrm{in}}$] (1.6,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (0,
+ 0) node[ocirc] (in_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Polarità ed etichetta tensione d'ingresso
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+path (in_p) -- (in_n)
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[pos=0.2] {$+$}
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[pos=0.5] {$V_{
+\backslash
+mathrm{in}}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[pos=0.8] {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Linea di massa e simbolo di terra
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (1.6,
+ 0) -- (4,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (2.8,
+ 0) node[ground] {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Generatore controllato e ramo d'uscita
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (4,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[cV,
+ v_>=$A 
+\backslash
+cdot V_{
+\backslash
+mathrm{in}}$] (4,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_{
+\backslash
+mathrm{out}}$] (6.4,
+ 2) node[ocirc] (out_p) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Linea comune verso il morsetto di uscita inferiore
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (4,
+ 0) -- (6.4,
+ 0) node[ocirc] (out_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Polarità ed etichetta tensione d'uscita
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+path (out_p) -- (out_n)
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[pos=0.2] {$+$}
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[pos=0.5] {$V_{
+\backslash
+mathrm{out}}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[pos=0.8] {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\shape italic
+Amplificatore in tensione
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Amplificatore-in-tensione"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{\text{oc}}$
+\end_inset
+
+ () è detta amplificazione di open-circuit,
+ che corrisponde al caso 
+\begin_inset Formula $R_{\text{load}}\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}[american]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Sorgente reale di tensione ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Nota:
+ inverti i nodi (da 2 a 0) per avere il '+' in alto
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+ 2) to[V,
+ v^<=$V_s$] (0,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+ 2) to[R,
+ l=$R_s$] (2.8,
+ 2) node[ocirc] (in_p) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+ 0) to[short] (2.8,
+ 0) node[ocirc] (in_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Tensione Vin tra i morsetti ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[below=3pt] at (in_p) {$+$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (2.4,
+ 1) {$V_{
+\backslash
+mathrm{in}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[above=3pt] at (in_n) {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Modello amplificatore ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Rin
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (in_p) to[short] (4.0,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_{
+\backslash
+mathrm{in}}$] (4.0,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (in_n);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Linea di massa e terra
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (4.0,
+ 0) -- (6.6,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (5.3,
+ 0) node[ground] {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Generatore controllato:
+ da 0 a 2 con v<= per avere + sopra e - sotto
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (6.6,
+ 0) to[cV,
+ v<=$A_{
+\backslash
+mathrm{OC}} 
+\backslash
+cdot V_{
+\backslash
+mathrm{in}}$] (6.6,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_{
+\backslash
+mathrm{out}}$] (9.6,
+ 2) node[ocirc] (out_p) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (6.6,
+ 0) to[short] (9.6,
+ 0) node[ocirc] (out_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Tensione Vout tra i morsetti ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[below=3pt] at (out_p) {$+$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (10.0,
+ 1) {$V_{
+\backslash
+mathrm{out}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[above=3pt] at (out_n) {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Carico Rcarico e Vcarico ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (out_p) to[short] (11.8,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l_=$R_{
+\backslash
+mathrm{carico}}$] (11.8,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (out_n);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=2pt] at (12.1,
+ 1) {$V_{
+\backslash
+mathrm{carico}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Riquadro tratteggiato rosso attorno all'amplificatore ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[red,
+ densely dotted] (3.3,
+ -0.6) rectangle (8.8,
+ 2.6);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\shape italic
+Amplificatore in tensione con ingresso in tensione e resistenza di carico
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Amplificatore-in-tensione-collegato"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=V_{\text{load}}=\frac{1}{1+\frac{R_{\text{out}}}{R_{\text{load}}}}A_{\text{oc}}V_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{\text{out}}=\frac{1}{1+\frac{R_{\text{out}}}{R_{\text{load}}}}A_{\text{oc}}\frac{1}{1+\frac{R_{\text{s}}}{R_{\text{in}}}}V_{\text{s}}\label{eq:v-out-amplificatore-tensione}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene che il guadagno 
+\begin_inset Formula $G=V_{\text{out}}/V_{\text{in}}$
+\end_inset
+
+ risulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=\frac{1}{1+\frac{R_{\text{out}}}{R_{\text{load}}}}\frac{1}{1+\frac{R_{\text{s}}}{R_{\text{in}}}}A_{\text{oc}}\label{eq:guadagno-amplificatore-tensione}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da notare 
+\begin_inset Formula $G\leq A_{\text{oc}}$
+\end_inset
+
+,
+ per cui 
+\begin_inset Formula $G=A_{\text{oc}}$
+\end_inset
+
+ nel caso ideale con 
+\begin_inset Formula $R_{\text{out}}\to0$
+\end_inset
+
+ e 
+\begin_inset Formula $r_{\text{in}}\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Amplificatore di corrente
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A_{I}=\frac{i_{\text{out}}}{i_{\text{in}}}\label{eq:guadagno-corrente-amplificatore-corrente}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{\text{sc}}$
+\end_inset
+
+ (numero puro) è detta amplificazione di short-circuit,
+ che corrisponde al caso 
+\begin_inset Formula $R_{\text{load}}\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}[american]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Sorgente di corrente e Rs in parallelo ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+ 0) to[I,
+ l=$i_s$] (0,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (1.8,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_s$] (1.8,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (0,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Morsetti di ingresso
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (1.8,
+ 2) to[short] (3.2,
+ 2) node[ocirc] (in_p) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (1.8,
+ 0) to[short] (3.2,
+ 0) node[ocirc] (in_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Modello amplificatore:
+ Rin ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (in_p) to[short] (4.4,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_{
+\backslash
+mathrm{in}}$] (4.4,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (in_n);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Freccia rossa corrente i_in
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[->,
+ >=stealth,
+ red] (3.6,
+ 1.8) to[bend left=30] 
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[midway,
+ left=1pt,
+ text=black] {$i_{
+\backslash
+mathrm{in}}$} (4.2,
+ 1.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Linea di massa e terra
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (4.4,
+ 0) -- (6.0,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (5.8,
+ 0) node[ground] {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (5.8,
+ 0) -- (6.6,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Generatore controllato di corrente (cI) e Rout ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Spazio generoso (2.2 unità) tra cI e Rout per evitare ogni sovrapposizione
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (6.6,
+ 0) to[cI,
+ l_=$A_{
+\backslash
+mathrm{SC}} 
+\backslash
+cdot i_{
+\backslash
+mathrm{in}}$] (6.6,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (8.8,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_{
+\backslash
+mathrm{out}}$] (8.8,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (6.6,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Morsetti di uscita
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (8.8,
+ 2) to[short] (10.0,
+ 2) node[ocirc] (out_p) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (8.8,
+ 0) to[short] (10.0,
+ 0) node[ocirc] (out_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Carico Rcarico con freccia i_carico ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (out_p) to[short] (11.8,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_{
+\backslash
+mathrm{carico}}$] (11.8,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (out_n);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Freccia rossa corrente i_carico
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[->,
+ >=stealth,
+ red] (10.8,
+ 1.8) to[bend left=30] 
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[midway,
+ left=1pt,
+ text=black] {$i_{
+\backslash
+mathrm{carico}}$} (11.5,
+ 1.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Riquadro tratteggiato rosso attorno all'amplificatore ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[red,
+ densely dotted] (3.6,
+ -0.6) rectangle (9.4,
+ 2.6);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\shape italic
+Amplificatore in corrente con ingresso in corrente e resistenza di carico
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Amplificatore-in-corrente-collegato"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{\text{load}}=\frac{1}{1+\frac{R_{\text{load}}}{R_{\text{out}}}}A_{\text{sc}}i_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{\text{out}}=\frac{1}{1+\frac{R_{\text{load}}}{R_{\text{out}}}}A_{\text{sc}}\frac{1}{1+\frac{R_{\text{in}}}{R_{\text{s}}}}i_{\text{s}}\label{eq:i-out-amplificatore-corrente}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene che il guadagno 
+\begin_inset Formula $G=i_{\text{out}}/i_{\text{in}}$
+\end_inset
+
+ risulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=\frac{1}{1+\frac{R_{\text{load}}}{R_{\text{out}}}}\frac{1}{1+\frac{R_{\text{in}}}{R_{\text{s}}}}A_{\text{sc}}\label{eq:guadagno-amplificatore-corrente}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da notare 
+\begin_inset Formula $G\leq A_{\text{sc}}$
+\end_inset
+
+,
+ per cui 
+\begin_inset Formula $G=A_{\text{sc}}$
+\end_inset
+
+ nel caso ideale con 
+\begin_inset Formula $R_{\text{out}}\to\infty$
+\end_inset
+
+ e 
+\begin_inset Formula $r_{\text{in}}\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Amplificatore di corrente con transistor BJT
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{load}=\frac{1}{1+\frac{R_{\text{load}}}{R_{out}}}\frac{1}{1+\frac{R_{\pi}}{R_{\text{s}}}}A_{\text{sc}}i_{\text{s}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Amplificatore di transresistenza
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R_{\text{m}}=\frac{V_{\text{out}}}{i_{\text{in}}}\label{eq:guadagno-tensione-amplificatore-transresistenza}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{\text{m}}$
+\end_inset
+
+ 
+\begin_inset Formula $\left(\left[R_{\text{m}}\right]=\Omega\right)$
+\end_inset
+
+ è detto guadagno di transresistenza di circuito aperto,
+ che corrisponde al caso 
+\begin_inset Formula $R_{\text{load}}\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{load}}=\frac{1}{1+\frac{R_{\text{out}}}{R_{\text{load}}}}R_{\text{m}}i_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{\text{out}}=\frac{1}{1+\frac{R_{\text{out}}}{R_{\text{load}}}}R_{\text{m}}\frac{1}{1+\frac{R_{\text{in}}}{R_{\text{s}}}}i_{\text{s}}\label{eq:V-out-amplificatore-transresistenza}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene che il guadagno 
+\begin_inset Formula $G=i_{\text{out}}/i_{\text{in}}$
+\end_inset
+
+ risulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=\frac{1}{1+\frac{R_{\text{out}}}{R_{\text{load}}}}\frac{1}{1+\frac{R_{\text{in}}}{R_{\text{s}}}}R_{\text{m}}\label{eq:guadagno-amplificatore-transresistenza}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da notare 
+\begin_inset Formula $G\leq R_{\text{m}}$
+\end_inset
+
+,
+ per cui 
+\begin_inset Formula $G=R_{\text{m}}$
+\end_inset
+
+ nel caso ideale con 
+\begin_inset Formula $R_{\text{out}}\to0$
+\end_inset
+
+ e 
+\begin_inset Formula $r_{\text{in}}\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Amplificatore di transconduttanza
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G_{\text{m}}=\frac{i_{\text{out}}}{V_{\text{in}}}\label{eq:guadagno-tensione-amplificatore-transconduttanza}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{\text{m}}$
+\end_inset
+
+ 
+\begin_inset Formula $\left(\left[G_{\text{m}}\right]=\Omega^{-1}\right)$
+\end_inset
+
+ è detto guadagno di transconduttanza di corto-circuito,
+ che corrisponde al caso 
+\begin_inset Formula $R_{\text{load}}\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{\text{load}}=\frac{1}{1+\frac{R_{\text{load}}}{R_{\text{out}}}}G_{\text{m}}V_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{\text{load}}=\frac{1}{1+\frac{R_{\text{load}}}{R_{\text{out}}}}\frac{1}{1+\frac{R_{\text{s}}}{R_{\text{in}}}}G_{\text{m}}V_{\text{in}}\label{eq:i-out-amplificatore-transconduttanza}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene che il guadagno 
+\begin_inset Formula $G_{\text{m}}=i_{\text{load}}/V_{\text{in}}$
+\end_inset
+
+ risulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=\frac{1}{1+\frac{R_{\text{load}}}{R_{\text{out}}}}\frac{1}{1+\frac{R_{\text{s}}}{R_{\text{in}}}}G_{\text{m}}\label{eq:guadagno-amplificatore-transconduttanza}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da notare 
+\begin_inset Formula $G\leq G_{\text{m}}$
+\end_inset
+
+,
+ per cui 
+\begin_inset Formula $G=G_{\text{m}}$
+\end_inset
+
+ nel caso ideale con 
+\begin_inset Formula $R_{\text{out}}\to\infty$
+\end_inset
+
+ e 
+\begin_inset Formula $r_{\text{in}}\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Amplificatore di transconduttanza con transistor BJT
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}[
+\end_layout
+
+\begin_layout Plain Layout
+
+    american,
+\end_layout
+
+\begin_layout Plain Layout
+
+    color=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+    draw=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+    text=black
+\end_layout
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Sorgente reale di ingresso (Vs,
+ Rs) ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+ 0) to[V,
+ v=$V_s$] (0,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l=$R_s$] (2.6,
+ 2) node[ocirc] (B) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+ 0) to[short] (2.6,
+ 0) node[ocirc] (in_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Terminale di Base (B) e tensione V_BE
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[above=2pt] at (B) {B};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[below=2pt] at (B) {$+$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (2.2,
+ 1) {$V_{
+\backslash
+mathrm{BE}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[above=2pt] at (in_n) {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Resistenza r_pi ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (B) to[short] (4.0,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l_=$r_
+\backslash
+pi$] (4.0,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (in_n);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Linea di emettitore (E),
+ massa e terra ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (4.0,
+ 0) -- (5.0,
+ 0) node[ocirc] (E) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[above=2pt] at (E) {E};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (E) node[ground] {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (E) -- (6.0,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Generatore controllato di corrente (gm * V_BE verso il basso) ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Disegnato da 2 a 0 per avere la freccia verso il basso
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (6.0,
+ 2) to[cI,
+ l_=$g_m 
+\backslash
+cdot V_{
+\backslash
+mathrm{BE}}$] (6.0,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Resistenza di uscita r_o ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (6.0,
+ 2) to[short] (7.8,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l_=$r_o$] (7.8,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (6.0,
+ 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Morsetto di Collettore (C) e linea di massa inferiore ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (7.8,
+ 2) to[short] (8.8,
+ 2) node[ocirc] (C) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[above=2pt] at (C) {C};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (7.8,
+ 0) to[short] (8.8,
+ 0) node[ocirc] (out_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Carico R_carico con V_carico e freccia i_carico ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (C) to[short] (10.6,
+ 2)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[R,
+ l_=$R_{
+\backslash
+mathrm{carico}}$] (10.6,
+ 0)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[short] (out_n);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Polarità e tensione V_carico a destra
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[above=6pt] at (11.2,
+ 1.8) {$+$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=2pt] at (11.0,
+ 1) {$V_{
+\backslash
+mathrm{carico}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[below=6pt] at (11.2,
+ 0.2) {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Freccia curva rossa per la corrente i_carico (rivolta verso l'alto/resistenza)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[->,
+ >=stealth,
+ red] (9.6,
+ 0.2) to[bend left=30] 
+\end_layout
+
+\begin_layout Plain Layout
+
+          node[midway,
+ left=1pt] {$i_{
+\backslash
+mathrm{carico}}$} (10.3,
+ 0.8);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\shape italic
+Amplificatore di transconduttanza con BJT
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Amplificatore-di-transconduttanza-bjt"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{load}=\frac{1}{1+\frac{R_{\text{load}}}{R_{out}}}\frac{1}{1+\frac{R_{\text{s}}}{R_{\pi}}}G_{\text{m}}V_{\text{s}}\label{eq:transconduttanza-bjt}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Amplificatori operazionali
+\end_layout
+
+\begin_layout Standard
+Gli amplificatori operazionali sono realizzati interamente in silicio e si tratta di amplificatori in tensione ad alto guadagno.
+ Hanno 3 terminali 
+\begin_inset Formula $\left(V_{\text{n}},V_{\text{p}},V_{\text{out}}\right)$
+\end_inset
+
+ e 2 alimentazioni (solitamente simmetriche) 
+\begin_inset Formula $+V_{\text{cc}}$
+\end_inset
+
+ e 
+\begin_inset Formula $-V_{\text{EE}}$
+\end_inset
+
+ che determinano il massimo del potenziale in uscita.
+ Il dispositivo non è collegato direttamente a massa,
+ ma il riferimento lo fa la massa comune delle alimentazioni.
+ Sono caratterizzati da un guadagno a circuito aperto molto grande.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{circuitikz}[
+\end_layout
+
+\begin_layout Plain Layout
+
+    american,
+\end_layout
+
+\begin_layout Plain Layout
+
+    color=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+    draw=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+    text=black
+\end_layout
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Amplificatore Operazionale ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Disegna il blocco op amp senza testo all'interno
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[op amp] (OA) at (3,
+ 0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Morsetti di ingresso Vn e Vp (fili perfettamente orizzontali)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (OA.-) -- (0.8,
+ 0.5) node[ocirc] (in_n) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[left=2pt] at (in_n) {$V_n$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (OA.+) -- (0.8,
+ -0.5) node[ocirc] (in_p) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[left=2pt] at (in_p) {$V_p$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Morsetto di uscita Vout
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (OA.out) -- (4.2,
+ 0) node[ocirc] (out) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=2pt] at (out) {$V_{
+\backslash
+mathrm{out}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Terminali di alimentazione dell'Op-Amp ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Segmenti verticali perfettamente a 90° con morsetti
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (3,
+ 0.8) -- (3,
+ 1.6) node[ocirc] (pwr_up) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (3,
+ -0.8) -- (3,
+ -1.6) node[ocirc] (pwr_down) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % --- Circuito di alimentazione:
+ connessione verso le due batterie ---
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (pwr_up) -- (6.0,
+ 1.6)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[battery2] (6.0,
+ 0) coordinate (mid_pwr)
+\end_layout
+
+\begin_layout Plain Layout
+
+          to[battery2] (6.0,
+ -1.6)
+\end_layout
+
+\begin_layout Plain Layout
+
+          -- (pwr_down);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Polarità ed etichette per Vcc (piastra lunga in alto,
+ corta in basso)
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=1pt] at (6.2,
+ 1.1) {$+$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=1pt] at (6.2,
+ 0.5) {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=12pt] at (6.2,
+ 0.8) {$V_{
+\backslash
+mathrm{CC}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Polarità ed etichette per Vee
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=1pt] at (6.2,
+ -0.5) {$+$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=1pt] at (6.2,
+ -1.1) {$-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node[right=12pt] at (6.2,
+ -0.8) {$V_{
+\backslash
+mathrm{EE}}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    % Connessione centrale di terra
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (mid_pwr) -- (7.5,
+ 0) node[ground] {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\shape italic
+Amplificatore operazionale
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Amplificatore-operazionale"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=AV_{\text{d}}=A\left(V_{\text{p}}-V_{\text{n}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Gli amplificatori operazionali 
+\series bold
+non permettono alla corrente di fluire attraverso i terminali di ingresso
+\series default
+,
+ quindi 
+\begin_inset Formula $R_{\text{in}}\to\infty$
+\end_inset
+
+;
+ idealmente,
+ la resistenza in uscita 
+\begin_inset Formula $R_{\text{o}}\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+L'amplificatore operazionale può essere difficilmente utilizzato in open-loop (a causa dell'alto guadagno),
+ ma solitamente si usa con una rete di feedback (closed-loop).
+\end_layout
+
+\begin_layout Standard
+Amplificatore operazionale 
+\series bold
+ideale
+\series default
+:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $R_{\text{in}}\to\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $R_{\text{o}}\to0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A\to\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Banda passante infinita
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operazionale invertente
+\end_layout
+
+\begin_layout Standard
+Configurazione invertente:
+ 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ chiude il circuito tra 
+\begin_inset Formula $V_{\text{out}}$
+\end_inset
+
+ e il terminale invertente 
+\begin_inset Formula $\left(-\right)$
+\end_inset
+
+.
+ Viene detto 
+\series bold
+feedback negativo
+\series default
+.
+ L'ingresso non invertente 
+\begin_inset Formula $\left(+\right)$
+\end_inset
+
+ è collegato a massa 
+\begin_inset Formula $\implies V_{\text{p}}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nel caso di condizioni di idealità sul guadagno open-circuit:
+ 
+\begin_inset Formula $A\to\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lim_{A\to\infty}V_{\text{d}}=\lim_{A\to\infty}\frac{V_{\text{out}}}{A}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Di conseguenza si ha la condizione di 
+\series bold
+virtual circuit
+\series default
+:
+ 
+\begin_inset Formula 
+\[
+V_{\text{p}}=V_{\text{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Di conseguenza,
+ 
+\begin_inset Formula $V_{\text{p}}=V_{\text{n}}=0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\implies V_{\text{out}}=-\frac{R_{2}}{R_{1}}V_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il guadagno di conseguenza è:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=-\frac{R_{2}}{R_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il guadagno è definito solamente dalla resistenze esterne e comporta a uno sfasamento di 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nel caso di non idealità 
+\begin_inset Formula $\left(A<\infty\right)$
+\end_inset
+
+ bisogna risolvere l'equazione ai nodi:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{n}}-V_{\text{out}}}{R_{2}}=\frac{V_{\text{in}}-V_{\text{n}}}{R_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=-\frac{R_{2}}{R_{1}}\frac{1}{1+\left(1+\frac{R_{2}}{R_{1}}\right)\frac{1}{A}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Le condizioni di non idealità si possono considerare trascurabili per 
+\begin_inset Formula $A\gg1+\frac{R_{2}}{R_{1}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Considerando la condizione di virtual-short si ha che 
+\begin_inset Formula $R_{\text{in}}=R_{1}$
+\end_inset
+
+,
+ mentre non si ha alcuna resistenza sull'output 
+\begin_inset Formula $R_{\text{o}}=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Analisi e miglioramento della rete di feedback
+\end_layout
+
+\begin_layout Standard
+Bisogna evitare di usare resistenze eccessivamente alte 
+\begin_inset Formula $\left(R_{2}>1\,M\Omega\right)$
+\end_inset
+
+,
+ a causa della poca precisione e dei problemi con rumore elettroniche e 
+\backslash
+begin{circuitikz}
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+    % Op-amp pulito:
+ i pin ora sono ortogonali per impostazione
+\end_layout
+
+\begin_layout Standard
+    
+\backslash
+node[op amp] (OA) at (3,
+ 0) {};
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+    % Ingressi orizzontali
+\end_layout
+
+\begin_layout Standard
+    
+\backslash
+draw (OA.-) -- ++(-1.5,
+ 0) node[ocirc] {} node[left] {$V_n$};
+\end_layout
+
+\begin_layout Standard
+    
+\backslash
+draw (OA.+) -- ++(-1.5,
+ 0) node[ocirc] {} node[left] {$V_p$};
+\end_layout
+
+\begin_layout Standard
+    
+\backslash
+draw (OA.out) -- ++(1,
+ 0)  node[ocirc] {} node[right] {$V_{
+\backslash
+mathrm{out}}$};
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+    % Alimentazioni perfettamente verticali
+\end_layout
+
+\begin_layout Standard
+    
+\backslash
+draw (OA.up)   -- ++(0,
+ 0.6) node[above] {$V_{
+\backslash
+mathrm{CC}}$};
+\end_layout
+
+\begin_layout Standard
+    
+\backslash
+draw (OA.down) -- ++(0,
+ -0.6) node[below] {$V_{
+\backslash
+mathrm{EE}}$};
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+end{circuitikz}
+\end_layout
+
+\begin_layout Standard
+Andando a risolvere l'equazione ai nodi sulla rete di feedback,
+ dove vengono usate 3 resistenze:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{2}+i_{3}=i_{4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{V_{x}}{R_{2}}-\frac{V_{x}}{R_{3}}=\frac{V_{x}-V_{\text{out}}}{R_{4}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=\frac{R_{2}}{R_{1}}\left(1+\frac{R_{4}}{R_{2}}+\frac{R_{4}}{R_{3}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nel caso in cui 
+\begin_inset Formula $R_{2}=kR_{3}$
+\end_inset
+
+ significa che 
+\begin_inset Formula $i_{3}=ki_{2}$
+\end_inset
+
+ 
+\begin_inset Formula $\implies i_{4}=\left(1+k\right)i_{1}$
+\end_inset
+
+.
+ Questo circuito si può usare come amplificatore di corrente quando il carico è 
+\series bold
+floating
+\series default
+ (non collegato a massa).
+\end_layout
+
+\begin_layout Subsection
+Operazionale sommatore pesato
+\end_layout
+
+\begin_layout Standard
+Per il principio di sovrapposizione vale 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=-\sum\frac{V_{i}}{R_{i}}R_{\text{f}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Operazionale non invertente
+\end_layout
+
+\begin_layout Standard
+Il segnale in tensione viene applicato all'ingresso non invertente 
+\begin_inset Formula $\left(+\right)$
+\end_inset
+
+.
+ In condizioni di idealità vale 
+\begin_inset Formula $V_{\text{p}}=V_{\text{n}}=V_{\text{in}}$
+\end_inset
+
+ a causa del virtual short.
+\end_layout
+
+\begin_layout Standard
+L'equazione ai nodi della maglia di feedback nel nodo del terminale invertente 
+\begin_inset Formula $i_{1}=i_{2}$
+\end_inset
+
+ di ottiene
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{n}}}{R_{1}}=\frac{V_{\text{out}}-V_{\text{n}}}{R_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+considerando le condizioni dovute al virtual short si ottiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=\left(1+\frac{R_{2}}{R_{1}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si comporta come un partitore di tensione,
+ dove il guadagno a circuito chiuso dipende esclusivamente dalla rete resistiva.
+\end_layout
+
+\begin_layout Standard
+Questo tipo di circuito avrà che una frazione di 
+\begin_inset Formula $V_{\text{out}}$
+\end_inset
+
+ viene fornita all'ingresso invertente controbilanciando l'aumento di 
+\begin_inset Formula $V_{\text{d}}$
+\end_inset
+
+ e riportandolo vicino a zero:
+ effetto di feedback degenerativo.
+\end_layout
+
+\begin_layout Standard
+Nel caso di non idealità è sufficiente utilizzare 
+\begin_inset Formula $V_{\text{n}}=V_{\text{in}}-\frac{V_{\text{out}}}{A}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=\frac{G_{\text{ideal}}}{1+\frac{G_{\text{ideal}}}{A}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si ottiene che poi 
+\begin_inset Formula $R_{\text{in}}\to\infty$
+\end_inset
+
+ e 
+\begin_inset Formula $R_{\text{out}}\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Inseguitore di tensione o buffer
+\end_layout
+
+\begin_layout Standard
+Si ottiene mettendo 
+\begin_inset Formula $R_{2}=0$
+\end_inset
+
+ e si rimuove 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La resistenza del carico viene alimentata direttamente tramite le tensioni di alimentazione dell'operazionale.
+\end_layout
+
+\begin_layout Subsection
+Amplificatore operazionale alle differenze
+\end_layout
+
+\begin_layout Standard
+L'amplificatore alle differenze risponde alla differenza tra i segnali in ingresso e rigetta i segnali comuni (caso ideale).
+\end_layout
+
+\begin_layout Standard
+Si definisce la tensione di modo comune
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{CM}}=\frac{V_{\text{p}}+V_{\text{n}}}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottengono le nuove relazioni:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+V_{\text{p}}=V_{\text{CM}}+\frac{\text{V}_{\text{d}}}{2}\\
+V_{\text{n}}=V_{\text{CM}}-\frac{\text{V}_{\text{d}}}{2}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In generale vale 
+\begin_inset Formula $V_{\text{out}}=A_{\text{d}}V_{\text{d}}+A_{\text{CM}}V_{\text{cm}}$
+\end_inset
+
+,
+ con 
+\begin_inset Formula $A_{\text{d}}$
+\end_inset
+
+ detto guadagno differenziale dell'amplificatore,
+ mentre 
+\begin_inset Formula $A_{\text{CM}}$
+\end_inset
+
+ è detto guadagno di modo comune dell'amplificatore.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{CMRR}=20\log\left(\frac{\left|A_{\text{d}}\right|}{\left|A_{\text{CM}}\right|}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Caso con un solo amplificatore 
+\end_layout
+
+\begin_layout Standard
+Tutte le tensioni sono riferite a massa.
+ Per ricavare la funzione di trasferimento si utilizza il principio di sovrapposizione.
+\end_layout
+
+\begin_layout Standard
+Al posto di 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+ si pone a massa e si lascia invariato 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+:
+ al nodo 
+\begin_inset Formula $V_{\text{n}}$
+\end_inset
+
+ si ottiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{out}}-V_{\text{n}}}{R_{2}}=\frac{V_{\text{n}}}{R_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e al nodo 
+\begin_inset Formula $V_{\text{p}}$
+\end_inset
+
+ si ottiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{p}}}{R_{4}}=\frac{V_{2}}{R_{3}+R_{4}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Andando a considerare il virtual short si ottiene che 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=\left(1+\frac{R_{2}}{R_{1}}\right)\frac{R_{4}}{R_{3}+R_{4}}V_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al posto di 
+\begin_inset Formula $V_{2}$
+\end_inset
+
+ si pone a massa e si lasci invariato 
+\begin_inset Formula $V_{1}$
+\end_inset
+
+:
+ si ottiene un amplificatore invertente con 
+\begin_inset Formula $V_{\text{out}}=-\frac{R_{2}}{R_{1}}V_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Di conseguenza,
+ andando a sommare i contributi si ottiene
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=\frac{R_{2}}{R_{1}}\left(\frac{1+\frac{R_{1}}{R_{2}}}{1+\frac{R_{3}}{R_{4}}}V_{2}-V_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+nel caso particolare di 
+\begin_inset Formula $R_{3}/R_{4}=R_{1}/R_{2}$
+\end_inset
+
+ si ha che 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=\frac{R_{2}}{R_{1}}\left(V_{2}-V_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ora si considera lo stesso circuito,
+ ma con ai due capi di input la stessa tensione comune 
+\begin_inset Formula $V_{\text{CM}}$
+\end_inset
+
+ analogamente a prima si ottiene che 
+\begin_inset Formula $V_{\text{p}}=\frac{R_{4}}{R_{3}+R_{4}}V_{\text{CM}}$
+\end_inset
+
+ e 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{CM}}-V_{\text{n}}}{R_{1}}=\frac{V_{\text{n}}-V_{\text{out}}}{R_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+da cui si ottiene andando a considerare il virtual short:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=\frac{R_{2}}{R_{1}}\left(\frac{1+\frac{R_{1}}{R_{2}}}{1+\frac{R_{3}}{R_{4}}}-1\right)V_{\text{CM}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Di conseguenza,
+ lo stesso caso particolare precedente 
+\begin_inset Formula $\left(R_{3}/R_{4}=R_{1}/R_{2}\right)$
+\end_inset
+
+ porta a avere 
+\begin_inset Formula $V_{\text{out}}=0$
+\end_inset
+
+ e 
+\begin_inset Formula $A_{\text{CM}}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un problema sta nel fatto che è impossibile avere resistenze identiche 
+\begin_inset Formula $\implies$
+\end_inset
+
+ 
+\begin_inset Formula $\text{CMRR}\neq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Inoltre,
+ se si va a valutare l'impedenza di ingresso e considerando il virtual short si osserva che 
+\begin_inset Formula $V_{\text{d}}=2R_{1}$
+\end_inset
+
+ di conseguenza 
+\begin_inset Formula $R_{\text{in}}=2R_{1}$
+\end_inset
+
+.
+ Di conseguenza,
+ se si vuole avere un certo guadagno 
+\begin_inset Formula $A_{\text{d}}=R_{2}/R_{1}$
+\end_inset
+
+ si è vincolati o ad avere 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ grande e imprecisa o 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ e,
+ di conseguenza,
+ 
+\begin_inset Formula $R_{\text{in}}$
+\end_inset
+
+ piccole
+\end_layout
+
+\begin_layout Subsection
+Amplificatore per strumentazione
+\end_layout
+
+\begin_layout Standard
+Il problema della bassa impedenza dell'amplificatore differenziale si risolve introducendo 2 buffer in ingresso.
+ Considerando 
+\begin_inset Formula $A_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $A_{2}$
+\end_inset
+
+ le amplificazioni a open-circuit,
+ si ottiene 
+\begin_inset Formula $V_{1,2\,x}=\left(1+\frac{R_{2}}{R_{1}}\right)V_{1,2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Di conseuenza,
+ nel caso di idealità:
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=\frac{R_{4}}{R_{3}}\left(1+\frac{R_{2}}{R_{1}}\right)\left(V_{2}-V_{1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I vantaggi sono che la 
+\series bold
+resistenza di ingresso è infinita
+\series default
+ (idealmente) e rimane un 
+\series bold
+grande quadagno differenziale
+\series default
+.
+ Se i due buffer e le resistenze collegate sono identiche il percorso seguito dai segnali è simmetrico.
+\end_layout
+
+\begin_layout Standard
+Gli svantaggi sono che:
+\end_layout
+
+\begin_layout Enumerate
+Il guadagno di ingresso è lo stesso per parte differenziale e di modo comune 
+\begin_inset Formula $\implies$
+\end_inset
+
+ è facile arrivare a saturazione
+\end_layout
+
+\begin_layout Enumerate
+Se i due buffer all'ingresso non sono identici,
+ si ottiene in output un segnale spurio
+\end_layout
+
+\begin_layout Enumerate
+Le resistenze 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+ e 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ dovrebbero essere rispettivamente identiche tra i due buffer,
+ cosa difficile da ottenere
+\end_layout
+
+\begin_layout Standard
+Questi problemi si possono risolvere togliendo la massa tra le resistenze 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+.
+ Considerando il virtual chort e il collegamento ottenuto si ha che
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i=\frac{V_{1x}-V_{2x}}{2\left(R_{1}+R_{2}\right)}=\frac{V_{1}-V_{2}}{2R_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene 
+\begin_inset Formula $G=\frac{R_{4}}{R_{3}}\left(1+\frac{R_{2}}{R_{1}}\right)$
+\end_inset
+
+,
+ importante notale che non è necessario che le due resistenze 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+ siano identiche:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G=\frac{R_{4}}{R_{3}}\left(1+\frac{R_{2}+R'_{2}}{2R_{1}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Caso con ingressi collegati a tensione di modo comune
+\end_layout
+
+\begin_layout Standard
+Si ottiene 
+\begin_inset Formula $V_{1x}=V_{\text{CM}}=V_{2x}$
+\end_inset
+
+ da cui si ottiene che la caduta di potenziale tra 
+\begin_inset Formula $2R_{1}$
+\end_inset
+
+ è nulla e la corrente che circola è nulla.
+ Di conseguenza l'eventuale tensione di modo comune agli ingressi non viene amplificata dallo stadio iniziale e viene semplicemente propagata.
+\end_layout
+
+\begin_layout Subsection
+Amplificatori operazionali di corrente
+\end_layout
+
+\begin_layout Standard
+Si vanno a considerare amplificatori 
+\series bold
+grounded
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+La seguente configurazione è detta current-mirror:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{\text{load}}=\frac{V_{\text{out}}-V_{\text{p}}}{R_{1}}=\frac{V_{n}-R_{2}i_{2}-V_{p}}{R_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+considerando il virtual short e 
+\begin_inset Formula $i_{\text{in}}=i_{2}$
+\end_inset
+
+ si ottiene 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{\text{load}}=-\frac{R_{2}}{R_{1}}i_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Un'altra configurazione si ottiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=V_{\text{n}}=V_{\text{p}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+da cui si ottiene 
+\begin_inset Formula $R_{1}i_{1}=R_{2}i_{2}$
+\end_inset
+
+,
+ da cui 
+\begin_inset Formula $i_{\text{load}}=i_{1}+i_{2}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{\text{load}}=\left(1+\frac{R_{2}}{R_{1}}\right)i_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Amplificatori operazionali di transresistenza
+\end_layout
+
+\begin_layout Standard
+In questa configurazione si ottiene 
+\begin_inset Formula $V_{\text{out}}=-Ri_{\text{in}}$
+\end_inset
+
+.
+ In condizioni di idealità 
+\begin_inset Formula $R_{\text{in}}=0$
+\end_inset
+
+ e 
+\begin_inset Formula $R_{\text{out}}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Circuiti
+\end_layout
+
+\begin_layout Subsection
+Circuiti integratori
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Subsubsection
+Integratore reale o 
+\begin_inset Quotes eld
+\end_inset
+
+lossy integrator
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A circuito aperto si ha:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{in}}-V_{x}}{R}=\frac{V_{x}-V_{\text{out}}}{1/\left(sC\right)}
+\]
+
+\end_inset
+
+Per la definizione dell'operazionale 
+\begin_inset Formula $V_{\text{out}}=aV_{d}=-aV_{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Da cui si ottiene che 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{in}}=-\left(\frac{1}{a}+\frac{sRC}{a}+sRC\right)V_{\text{out}}
+\]
+
+\end_inset
+
+Dunque 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{out}}}{V_{\text{in}}}=\frac{a}{1+\left(1+a\right)sRC}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In corrente continua 
+\begin_inset Formula $\left(s\to0\right)$
+\end_inset
+
+,
+ il guadagno non è più infinito,
+ e in generale si ha un polo spostato da 0:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{p}=-\frac{1}{\left(a+1\right)RC}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Circuito differenziatore
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=-\frac{Z_{R}}{Z_{C}}=-sRC
+\]
+
+\end_inset
+
+Nel dominio del tempo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+i_{c}=C\frac{dV_{\text{in}}}{dt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+e andando a valutare l'equazione ai nodi:
+ 
+\begin_inset Formula $i_{C}=i_{R}=-V_{\text{out}}/R$
+\end_inset
+
+ si ottiene
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}=-RC\frac{dV_{\text{in}}}{dt}
+\]
+
+\end_inset
+
+La funzione di trasferimento è 
+\begin_inset Formula $H=-j\omega RC$
+\end_inset
+
+ 
+\begin_inset Formula $\implies\varphi=-\frac{\pi}{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Si comporta sostanzialmente come un filtro passa alto con frequenza di taglio 
+\begin_inset Formula $\omega_{0}=\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Un problema è che anche il ruomre in questo modo viene amplificato,
+ per risolvere questo problema di stabilità si inserisce una resistenza a monte del condensatore 
+\begin_inset Formula $\left(R_{1}\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Differenziatore reale
+\end_layout
+
+\begin_layout Standard
+Con circuito aperto si ha:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{in}}-V_{\text{x}}}{1/sC}=\frac{V_{x}-V_{\text{out}}}{R}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+andando a considerare la condizione 
+\begin_inset Formula $V_{\text{out}}=aV_{d}=-aV_{x}$
+\end_inset
+
+ si ottiene
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{in}}=-\left(\frac{1}{a}+\frac{1}{asRC}+\frac{1}{sRC}\right)V_{\text{out}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{out}}}{V_{\text{in}}}=\frac{sRC}{1+\frac{1}{a}+\frac{sRC}{a}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Il polo si trova in 
+\begin_inset Formula 
+\[
+s_{p}=-\frac{a+1}{RC}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Filtri
+\end_layout
+
+\begin_layout Standard
+Un filtro è un circuito che riceve un segnalre e restituisce un segnale che dipende dalla frequenza in ingresso.
+ La risposta viene definita in ampiezza 
+\begin_inset Formula $\left|H\left(j\omega\right)\right|$
+\end_inset
+
+ e in fase 
+\begin_inset Formula $LH\left(j\omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+I filtri sono classificati come:
+\end_layout
+
+\begin_layout Enumerate
+passa basso:
+ 
+\begin_inset Formula $\omega<\omega_{c}\implies\left|H\right|=1$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\omega>\omega_{c}\implies\left|H\right|=0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+passa alto:
+ 
+\begin_inset Formula $\omega>\omega_{c}\implies\left|H\right|=1$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\omega<\omega_{c}\implies\left|H\right|=0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+passa banda:
+ 
+\begin_inset Formula $\omega\in\left[\omega_{L};\omega_{H}\right]\implies\left|H\right|=1$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\omega\notin\left[\omega_{L};\omega_{H}\right]\implies\left|H\right|=0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+taglia banda:
+ 
+\begin_inset Formula $\omega\in\left[\omega_{L};\omega_{H}\right]\implies\left|H\right|=0$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\omega\notin\left[\omega_{L};\omega_{H}\right]\implies\left|H\right|=1$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Standard
+I filtri passivi hanno solo resistenze,
+ capacità,
+ induttanze;
+ i filtri attivi hanno operazionali.
+\end_layout
+
+\begin_layout Standard
+Il comportamento del filtro è determinato dalla funzione di trasferimento:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=\frac{X_{\text{out}}\left(s\right)}{X_{\text{in}}\left(s\right)}
+\]
+
+\end_inset
+
+Dove 
+\begin_inset Formula $X_{\text{in}}\left(s\right)=\mathscr{L}\left[X_{\text{in}}\left(t\right)\right]$
+\end_inset
+
+ (trasformata di Laplace),
+ che corrisponde passare dal dominio del tempo a quello delle frequenze.
+ Per ottenere 
+\begin_inset Formula $X_{\text{out}}\left(t\right)=\mathscr{L}^{-1}\left[H\left(s\right)X_{\text{in}}\left(s\right)\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nel nostro caso,
+ la funzione di trasferimento è un rapporto di polinomi a coefficienti reali,
+ dove il grado del denominatore determina l'ordine del filtro 
+\begin_inset Formula $\left(m\le n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=\frac{a_{m}s^{m}+...+a_{1}s+a_{0}}{b_{n}s^{n}+...+b_{1}s+b_{0}}
+\]
+
+\end_inset
+
+Conviene scriverla in funzione dei prodotti che evidenzino zeri e poli.
+ Gli zeri e i poli possono essere reali e complessi,
+ ma se sono complessi anche la soluzione coniugata è rispettivamente un zero o un polo.
+\end_layout
+
+\begin_layout Subsection
+Stabilità dei circuiti
+\end_layout
+
+\begin_layout Definition
+Un circuito si dice stabile se,
+ in presenza di uno stimolo limitto,
+ produce una risposta limitata.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Per studiare la stabilità si inietta un impulso e si va a vedere la risposta naturale:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h\left(t\right)=\mathscr{L}^{-1}\left[H\left(s\right)\mathscr{L}\left[\delta\left(t\right)\right]\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove 
+\begin_inset Formula $\mathscr{L}\left[\delta\left(t\right)\right]=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se 
+\begin_inset Formula $H\left(s\right)$
+\end_inset
+
+ ha un polo reale con 
+\begin_inset Formula $s=\sigma_{k}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $H\left(s\right)$
+\end_inset
+
+ contiene un termine:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{A_{k}}{a-\sigma_{k}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Di conseguenza 
+\begin_inset Formula $h\left(t\right)=A_{k}e^{\sigma_{k}t}\cdot u\left(t\right)$
+\end_inset
+
+ dove 
+\begin_inset Formula $u\left(t\right)$
+\end_inset
+
+ è la funzione di Heaviside.
+\end_layout
+
+\begin_layout Standard
+Un circuito stabile deve avere tutti i poli nel semipiano 
+\begin_inset Formula $\text{Re}\left(s\right)<0$
+\end_inset
+
+ con 
+\begin_inset Formula $\sigma<0$
+\end_inset
+
+.
+ Tutti i circuiti passivi sono stabili.
+ 
+\end_layout
+
+\begin_layout Subsection
+Filtri del I ordine
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=\frac{a_{1}s+a_{0}}{s+\omega_{0}}
+\]
+
+\end_inset
+
+Il polo corrisponde a 
+\begin_inset Formula $p=-\omega_{0}$
+\end_inset
+
+ e 
+\begin_inset Formula $z_{1}=-a_{0}/a_{1}$
+\end_inset
+
+ permette di caratterizzare il tipo di filtro:
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a_{1}=0$
+\end_inset
+
+:
+ passa basso
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a_{0}=0$
+\end_inset
+
+:
+ passa alto
+\end_layout
+
+\begin_layout Example
+Filtro RC passa basso (filtro passivo)
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+H\left(s\right)=\frac{1}{1+sRC}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+con 
+\begin_inset Formula $\omega_{0}=\frac{1}{RC}$
+\end_inset
+
+ si ottiene 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+H\left(s\right)=\frac{\omega_{0}}{s+\omega_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Si studia la risposta a una funzione di Heaviside:
+ 
+\begin_inset Formula $V_{\text{in}}\left(t\right)=V_{1}u\left(t\right)$
+\end_inset
+
+,
+ considerando che 
+\begin_inset Formula $\mathscr{L}\left[u\left(t\right)\right]=\frac{1}{s}$
+\end_inset
+
+ si ottiene 
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=\frac{\omega_{0}}{s+\omega_{0}}\frac{V_{1}}{s}=V_{1}\left(\frac{1}{s}-\frac{1}{s+\omega_{0}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=V_{1}u\left(t\right)-V_{1}e^{-\omega_{0}t}u\left(t\right)=V_{1}u\left(t\right)\left(1-e^{-\omega_{0}t}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Si studi la risposta a un impulso quadrato:
+ 
+\begin_inset Formula $V_{\text{in}}\left(t\right)=V_{1}\left(u\left(t\right)-u\left(t-t_{a}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+\mathscr{L}\left[u\left(t-t_{a}\right)\right]=\frac{1}{s}e^{-t_{a}s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=\frac{\omega_{0}}{s+\omega_{0}}\frac{V_{1}}{s}\left(1-e^{-t_{a}s}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Tornando nel dominio del tempo si ottiene:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=V_{1}u\left(t\right)\left(1-e^{-\omega_{0}t}\right)-V_{1}u\left(t-t_{a}\right)\left(1-e^{-\omega_{0}\left(t-t_{a}\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Filtro RC passa alto (filtro passivo)
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+H\left(s\right)=\frac{sCR}{1+sCR}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+H\left(s\right)=\frac{s}{s+\omega_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Caso di una funzione di Heaviside in ingresso:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=\frac{V_{1}}{s+\omega_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=V_{1}e^{-\omega_{0}t}u\left(t\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Caso di un impulso quadrato in ingresso:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=\frac{s}{s+\omega_{0}}\left(\frac{V_{1}}{s}-\frac{V_{1}}{s}e^{-t_{a}s}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=V_{1}\left(e^{-\omega_{0}t}u\left(t\right)-V_{1}e^{-\omega_{0}\left(t-t_{a}\right)}u\left(t-t_{a}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Filtro attivo del I ordine passa basso
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=-\frac{\omega_{0}}{s}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+con 
+\begin_inset Formula $\omega_{0}=1/\left(RC\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Si studia il caso di una funzione di Heaviside in ingresso:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=H\left(s\right)V_{\text{in}}\left(s\right)=-\frac{\omega_{0}}{s^{2}}V_{\text{in}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=-\omega_{0}tV_{1}u\left(t\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Si studia il caso di un impulso quadrato in ingresso:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{in}}\left(s\right)=\frac{V_{1}}{s}\left(1-e^{-t_{a}s}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=-\omega_{0}V_{1}\left(tu\left(t\right)+\left(t-t_{a}\right)u\left(t-t_{a}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ora si considera un filtro attivo contenente anche la resistenza 
+\begin_inset Formula $R_{2}$
+\end_inset
+
+:
+ la funzione di trasferimento è la stessa a meno di un fattore moltiplicativo 
+\begin_inset Formula $-R_{2}/R_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Filtro attivo del I ordine passa alto
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=-\frac{R_{2}}{\frac{1}{sC}}=-\frac{s}{\omega_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Si studia il caso di una funzione di Heaviside in ingresso:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=-\frac{V_{1}}{\omega_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=-\frac{V_{1}}{\omega_{0}}\delta\left(t\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Si studia il caso di un impulso quadrato in ingresso:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=-\frac{V_{1}}{\omega_{0}}\left(1-e^{-t_{a}s}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=-\frac{V_{1}}{\omega_{0}}\left(\delta\left(t\right)-\delta\left(t-t_{a}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In realtà il filtro ha come funzione di trasferimento 
+\begin_inset Formula $H\left(s\right)=-\frac{R_{2}}{R_{1}}\frac{s}{s+\omega_{0}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Di conseguenza con una funzione di Heaviside si ha 
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=-\frac{R_{2}}{R_{1}}V_{1}e^{-\omega_{0}t}u\left(t\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+mentre nel caso di un impulso quadrato:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(t\right)=-\frac{R_{2}}{R_{1}}V_{1}\left(e^{-\omega_{0}t}u\left(t\right)-e^{-\omega_{0}\left(t-t_{a}\right)}u\left(t-t_{a}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Filtro attivo del primo ordine all-pass filter
+\end_layout
+
+\begin_layout Standard
+La caratteristica di questo filtro è che:
+\end_layout
+
+\begin_layout Enumerate
+zero e polo sono simmetrici rispetto all'origine
+\end_layout
+
+\begin_layout Enumerate
+la risposta in frequenza ideale è costante a tutte le frequrenze
+\end_layout
+
+\begin_layout Enumerate
+applica una selezione nella fase
+\end_layout
+
+\begin_layout Standard
+Al nodo 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ si ha
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{in}}-V_{p}}{R}=\frac{V_{p}}{1/\left(sC\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al nodo 
+\begin_inset Formula $V_{n}$
+\end_inset
+
+ si ha
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{V_{\text{in}}-V_{n}}{R_{1}}=\frac{V_{n}-V_{\text{out}}}{R_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+V_{\text{out}}\left(s\right)=\frac{1-sRC}{1+sRC}V_{\text{in}}\left(s\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=-\frac{s-\omega_{0}}{s+\omega_{0}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Filtri del II ordine
+\end_layout
+
+\begin_layout Subsubsection
+Filtro del II ordine passa banda
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Z_{1}=Z_{R_{1}}+Z_{C_{1}}=R_{1}+\frac{1}{sC_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Z_{2}=Z_{R_{2}}\parallel Z_{C_{2}}=\frac{R_{2}}{1+sR_{2}C_{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+H\left(s\right)=-\frac{Z_{2}}{Z_{1}}=-\frac{1}{R_{1}C_{1}}\frac{s}{\left(s+\omega_{1}\right)\left(s+\omega_{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Catena elettronica
+\end_layout
+
+\begin_layout Subsection
+Preamplificatore
+\end_layout
+
+\begin_layout Subsection
+Formatore CR-RC
+\end_layout
+
+\begin_layout Subsection
+Undershoot e pole-zero compensation
+\end_layout
+
+\begin_layout Section
+Dispositivi a semiconduttore
+\end_layout
+
+\begin_layout Standard
+Ci concentreremo soprattutto su diodi e transistor.
+\end_layout
+
+\begin_layout Subsection
+Diodo a giunzione PN
+\end_layout
+
+\begin_layout Standard
+Il diodo permette il passaggio di corrente solamente in un unico verso e la corrente scorre quando la tensione supera un valore di soglia chiamato potenziale di accensione 
+\begin_inset Formula $\left(V_{\text{on}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La curva caratteristica del diodo è:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Curva caratteristica del diodo PN
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Curva-caratteristica-diodo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Vale la relazione 
+\begin_inset Formula 
+\[
+i_{d}\propto\exp\left(V_{d}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+inoltre,
+ c'è una forte dipendenza dalla temperatura:
+ 
+\begin_inset Formula $i_{d}=i_{d}\left(T\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Il diodo è un elemento non lineare.
+\end_layout
+
+\begin_layout Standard
+Anche se messo nel verso opposto alla corrente si ha una leggera corrente inversa,
+ detta corrente di saturazione 
+\begin_inset Formula $\left(10^{-12}\,A\right)$
+\end_inset
+
+.
+ Attorno a un certo valore di tensione 
+\begin_inset Formula $V_{Z}$
+\end_inset
+
+ avviene l'effetto Zener e il diodo torna a condurre come una resistenza.
+\end_layout
+
+\begin_layout Subsubsection
+Modello matematico del diodo
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i_{d}=I_{s}\left(\exp\left(\frac{V_{d}}{nV_{T}}\right)-1\right)\label{eq:modello-matematico-diodo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+dove 
+\begin_inset Formula $I_{s}$
+\end_inset
+
+ è la corrente di saturazione inversa 
+\begin_inset Formula $\left(I_{s}<10^{-19}\,A\right)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ è detto parametro di idealità 
+\begin_inset Formula $n\in\left[1;2\right]$
+\end_inset
+
+,
+ 
+\begin_inset Formula $V_{T}$
+\end_inset
+
+ è la tensione termica,
+ che a temperatura ambiente è dell'ordine di 
+\begin_inset Formula $\sim25\,\text{mV}$
+\end_inset
+
+ 
+\begin_inset Formula $\left(V_{T}=k\frac{T}{q}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Questo modello non tiene per ora conto dell'effetto Zener.
+ 
+\begin_inset Formula $I_{s}\propto n_{i}^{2}$
+\end_inset
+
+ dove 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ è la densità dei portatori di carica e di conseguenza dipende dalla temperatura.
+\end_layout
+
+\begin_layout Subsubsection
+Retta di carico e punto di lavoro
+\end_layout
+
+\begin_layout Standard
+Si considera che 
+\begin_inset Formula $i_{d}$
+\end_inset
+
+ è la corrente che circola nella maglia e 
+\begin_inset Formula $V_{d}=V_{A}-V_{B}$
+\end_inset
+
+.
+ Si ha che 
+\begin_inset Formula $V_{s}-V_{d}-Ri_{d}=0$
+\end_inset
+
+,
+ da cui si ottiene 
+\begin_inset Formula $i_{d}=\frac{V_{s}-V_{d}}{R}$
+\end_inset
+
+.
+ Ma si conosce anche 
+\begin_inset Formula $i_{d}$
+\end_inset
+
+ dalla funzione caratteristica del diodo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:modello-matematico-diodo"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+La retta di carico si ottiene andando a considerare un diodo che non ha resistenza (short-circuit) porta a 
+\begin_inset Formula $i_{d}=V_{s}/R$
+\end_inset
+
+ e 
+\begin_inset Formula $V_{d}=0$
+\end_inset
+
+,
+ mentre per un diodo totalmente resistivo (open-circuit) si ottiene 
+\begin_inset Formula $i_{d}=0$
+\end_inset
+
+ e 
+\begin_inset Formula $V_{d}=V_{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+L'intersezione tra la retta di carico e il modello del diodo dà il punto di lavoro del diodo 
+\begin_inset Formula $\left(\text{Q}_{\text{point}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Modelli del diodo
+\end_layout
+
+\begin_layout Paragraph
+Modello del diodo ideale
+\end_layout
+
+\begin_layout Standard
+Solitamente 
+\begin_inset Formula $n=1.8$
+\end_inset
+
+ e 
+\begin_inset Formula $I_{s}=2\,\text{nA}$
+\end_inset
+
+.
+ Se si considera una scala con centinaia di Volt e decine di Ampere,
+ l'esponensiale diventa sostanzialmente una spezzata.
+ Si comporta sostanzialmente come un interruttore in base al verso della corrente,
+ nel modello ideale.
+\end_layout
+
+\begin_layout Paragraph
+Modello a caduta di tensione costante
+\end_layout
+
+\begin_layout Standard
+Scala sotto 
+\begin_inset Formula $10\,\text{V}$
+\end_inset
+
+ e dell'ordine di 
+\begin_inset Formula $1\,\text{A}$
+\end_inset
+
+.
+ Si può vedere il potenziale di accensione,
+ e il diodo può essere schematizzato in questo modo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schema diodo modello a caduta di tensione costante
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Modello lineare
+\end_layout
+
+\begin_layout Standard
+Scala sotto il 
+\begin_inset Formula $\text{V}$
+\end_inset
+
+ e ordini di corrente di 
+\begin_inset Formula $\mu\text{A}$
+\end_inset
+
+ si può linearizzare il comportamento e rappresentarlo come 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{di_{d}}{dv_{d}}=I_{s}\exp\left(\frac{V_{d}}{nV_{T}}\right)\frac{1}{nV_{T}}
+\]
+
+\end_inset
+
+ si può considerare 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r_{d}=\frac{nV_{T}}{i_{d}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Modello di Zener
+\end_layout
+
+\begin_layout Standard
+Andando a tensioni negative,
+ si avrà una curva che va come 
+\begin_inset Formula $1/r_{z}$
+\end_inset
+
+ con 
+\begin_inset Formula $r_{z}\in\left[1\,\Omega;100\,\Omega\right]$
+\end_inset
+
+.
+ Si usa spesso come limitatore di corrente.
+\end_layout
+
+\begin_layout Subsubsection
+Caratterizzazione di un diodo a caduta di tensione costante
+\end_layout
+
+\begin_layout Standard
+Quali sono i principali errori sistematici:
+ gli strumenti non sono ideali (non hanno resistenza infinita o nulla rispettivamente per misuratore di tensione e di corrente).
+ Solitamente 
+\begin_inset Formula $R_{V}\sim10\,\text{M}\Omega$
+\end_inset
+
+ e 
+\begin_inset Formula $R_{A}\sim1\div1\text{k }\,\Omega$
+\end_inset
+
+.
+ Se 
+\begin_inset Formula $R\gg R_{A}$
+\end_inset
+
+ e 
+\begin_inset Formula $r_{d}\ll R_{V}$
+\end_inset
+
+ ok
+\end_layout
+
+\begin_layout Standard
+Si richiede che 
+\begin_inset Formula $r_{d}=\frac{nV_{T}}{i_{d}}<R_{V}/10$
+\end_inset
+
+ in condizioni di laboratorio 
+\begin_inset Formula $r_{d}\sim\frac{0.05V}{i_{d}}\implies i_{d}>50\,\text{nA}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Raddrizzatore a semionda
+\end_layout
+
+\begin_layout Standard
+Si considera una tensione alternata 
+\begin_inset Formula $V\left(t\right)=A\sin\left(\omega t+\varphi\right)$
+\end_inset
+
+ dove 
+\begin_inset Formula $\left\langle V\right\rangle =0$
+\end_inset
+
+ e 
+\begin_inset Formula $\Delta V=2A$
+\end_inset
+
+.
+ Raddrizzare la corrente significa che 
+\begin_inset Formula $\left\langle V\right\rangle \neq0$
+\end_inset
+
+ e 
+\begin_inset Formula $\Delta V=0$
+\end_inset
+
+,
+ cioè trasformarla in corrente continua.
+\end_layout
+
+\begin_layout Standard
+Il 
+\begin_inset Formula $V_{\text{on}}$
+\end_inset
+
+ porta ad avere un ritardo nell'accensione e si vede che la curva in ingresso sta sopra alla curva in uscita:
+ 
+\begin_inset Formula $V_{\text{on}}=V_{\text{in}}-V_{\text{out}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Nel caso in cui si sostituisce 
+\begin_inset Formula $R$
+\end_inset
+
+ con una capacità si ha nella fase di carica del condensatore analogo,
+ ma quando il diodo si spegne il condensatore si scarica e lascia alta la tensione.
+\end_layout
+
+\begin_layout Standard
+Andando a considerare anche una resistenza di carico 
+\begin_inset Formula $R_{\text{load}}$
+\end_inset
+
+ si vuole avere che il periodo dell'onda sia 
+\begin_inset Formula $T\gg C\left(R_{G}+r_{d}\right)$
+\end_inset
+
+ e 
+\begin_inset Formula $T\ll CR_{\text{load}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si avrà che la tensione massima è 
+\begin_inset Formula $V_{\text{load}}^{\text{max}}=A-V_{\text{on}}$
+\end_inset
+
+ e la minima 
+\begin_inset Formula $V_{\text{load}}^{\text{min}}=V_{\text{load}}^{\text{max}}\exp\left(-\frac{t_{1}-t_{0}}{\tau_{\text{load}}}\right)$
+\end_inset
+
+.
+ Si definisce il 
+\series bold
+ripple
+\series default
+ come 
+\begin_inset Formula $\delta V=V_{\text{load}}^{\text{max}}-V_{\text{load}}^{\text{min}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Se 
+\begin_inset Formula $t_{1}-t_{0}\sim T$
+\end_inset
+
+ allora 
+\begin_inset Formula $\delta V=V_{\text{load}}^{\text{max}}\left(1-\exp\left(-\frac{T}{\tau_{\text{load}}}\right)\right)\approx V_{\text{load}}^{\text{max}}\frac{T}{\tau_{\text{load}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Durante la fase di carica del condensatore la corrente è elevata,
+ mentre è praticamente nulla nella fase di scarica.
+\end_layout
+
+\begin_layout Subsubsection
+Raddrizzatore a doppia semionda di precisione
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V_{A}$
+\end_inset
+
+ e 
+\begin_inset Formula $V_{C}$
+\end_inset
+
+ a causa del virtual short sono a 
+\begin_inset Formula $0\,\text{V}$
+\end_inset
+
+.
+ Se 
+\begin_inset Formula $V_{1}>0$
+\end_inset
+
+ allora corrente scorre dal generatore verso destra.
+\end_layout
+
+\begin_layout Standard
+Se 
+\begin_inset Formula $D_{2}$
+\end_inset
+
+ è aperto,
+ allore ci può essere una corrente che va verso B 
+\begin_inset Formula $\implies V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Ponte a diodi
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document
