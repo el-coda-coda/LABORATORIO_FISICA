@@ -1,4 +1,24 @@
-*.raw
-*.log
-*.op.raw
+# LyX e LaTeX
 *~
+*.lyx~
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# LTspice & simulatori circuiti
+*.raw
+*.op.raw
+*.log
+
+# LibreOffice / Excel lock files
+.~lock.*.ods#
+.~lock.*.csv#
+
+# Python / Ambienti virtuali (se usate script di analisi dati)
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+venv/
