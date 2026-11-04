@@ -1,6 +1,6 @@
 # LABORATORIO DI FISICA
 
-Repository condiviso per il materiale di laboratorio, simulazioni circuitali (LTspice), fogli di calcolo dati e relazioni.
+Repository condiviso per il materiale di laboratorio A.A. 2026-2027. La libreria a cui fanno riferimento i codici è la mia libreria python che è pubblicata [qui](https://pypi.org/project/lab-physics-tools/). Mentre per il codice e possibili applicazioni/esempi c'è il [repository](https://github.com/el-coda-coda/LabPhysicsTools.git). 
 
 ---
 
@@ -78,6 +78,9 @@ Metodo 2: Tramite terminale (CLI)
     # Torna sul main e assicurati che sia aggiornato
     git switch main
     git pull
+
+    # Mostra le branches attive al momento
+    git branches -a
 
     # Esegui il merge del branch completato
     git merge feature-analisi-dati
